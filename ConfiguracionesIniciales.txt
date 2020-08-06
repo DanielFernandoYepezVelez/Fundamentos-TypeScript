@@ -1,0 +1,47 @@
+tsc =>
+Para Compilar tsc index.ts se deben ejecutar las siguientes configuraciones:
+"scripts": {
+        "start": "node ./dist/index.js",
+        "dev": "nodemon ./dist/index.js",
+        "build": "rimraf ./dist && tsc --esModuleInterop ./src/index.ts && rimraf ./src/*.js && rimraf ./src/routes/*.js && tsc --outDir ./dist/ --watch"
+    },
+por que al compilar solo el index.ts, no se tendran en cuenta lo demas archivos y eso impide que se lea el tsconfig.json que nos ayuda a omitir la escritura de las banderas en el momento de la ejecución de los comandos para correr el programa ya sea en desarrollo o en prudcción(No Se Recomienda).
+
+Para compilar todo el proyecto se deben ejecutar la siguientes configuraciones:
+"scripts": {
+        "start": "node ./dist/src/index.js",
+        "nodemon": "nodemon ./dist/src/index.js",
+        "build": "tsc --watch",
+        "dev": "concurrently \"npm run build\" \"npm run nodemon\""
+    },
+esta configuracion para compilar es buena por que escucha lo cambios de javascript con nodemon, pero antes escucha la compilacion con tsc, lo unico que se debe tener encuenta es que no tiene el modulo rimraf para eliminar el proyecto de la distribución antes de cada compilación.
+
+"ts:node": "ts-node ./src/index.ts", Esta configuracion es muy interesante por que el compila directamente el codigo de typeScript en nodeJS, es decir, no lo convierte o compila con el tsc en un archivo .js, lo que se debe tener en cuenta es que en producción se debe leer archivos .js, por eso al final se debe compilar el proyecto de .ts a .js.
+
+Esta es la compilacion mas completa hasta este momento enfocada en desarrollo, tener en cuenta que es muy larga:
+"scripts": {
+        "start": "node ./dist/src/index.js",
+        "ts:node": "ts-node ./src/index.ts",
+        "hbscopy": "ncp ./src/views/ ./dist/src/views/",
+        "publiccopy": "ncp ./src/public/ ./dist/src/public/",
+        "build": "tsc && npm run hbscopy && npm run publiccopy",
+        "clean": "rimraf ./dist",
+        "dev": "nodemon"
+    },
+
+Crear El archivo nodemon.json:
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "ignore": ["src/**/*.spec.ts"],
+    "exec": "ts-node ./src/index.ts"
+}
+Nodemon vas a estar mirando la carpeta src.
+Nodemon vas a estar mirando dentro de la carpeta src los archivos con extencion .ts
+Nodemon ignora todos los archivos dentro de la carpeta src que termine con .spect.ts
+Nodemon ejecutate con el modulo instalado de ts-node y la ruta de la carpeta src
+Aqui tampoco se eliminala carpeta de distribución, pero no es necesario por que al trabajar con el modulo de ts-node no se va a crear la carpeta de distribución que es la que va a producción.
+NOTA => Se Agrego el modulo ncp para poder agregar a producción la carpeta de views y ademas de la de public y los respectivos comandos de "hbscopy" y de "publiccopy" y por ultimo, la modificacion del build.
+
+TSUN npm install -g tsun =>
+Ya lo tengo instalado de forma global y su función principal es poder ver la ejecución de typeScript por la consola de comandos sin la necesidad de implementar el compilador de typeScript para obtener un archivo .js y poder interpretar el código compilado.
