@@ -1,3 +1,4 @@
+"use strict";
 /* ========= TIPOS DE DATOS VARIABLES ===============*/
 /* String */
 var mensaje = 'Soy Una Variables De Tipo String';
@@ -105,7 +106,7 @@ var person = {
     lastName: 'Yepez Vélez',
     email: 'danipez.02@gmail.com',
     edad: 27,
-    identificación: 1017210120
+    identificación: 1017210120,
 };
 console.log("Objeto Inicial => " + person.name);
 /* Data Actualizada */
@@ -114,7 +115,7 @@ person = {
     lastName: 'Yepez Vélez DOS',
     email: 'danipez.02@gmail.com DOS',
     edad: 30,
-    identificación: 103939222
+    identificación: 103939222,
 };
 console.log("Data Actualizada => " + person.name);
 console.log('-------------------------------------------------------------\n');
