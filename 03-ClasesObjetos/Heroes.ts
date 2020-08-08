@@ -5,6 +5,15 @@ de acceso */
 class Avenger {
  constructor(public name: string, private power: number) {}
 
+ get powerMethod(): number {
+  return this.power;
+ }
+
+ /* EJEMPLO DE UN SET
+  set metodo(parametro: number) {
+  this.power = parametro;
+ } */
+
  protected getNombre(): string {
   console.log('GET NOMBRE AVENGER(PROTECTED)');
   return this.name;
@@ -28,7 +37,24 @@ class Xmen extends Avenger {
 
 const AVENGER = new Avenger('AvengerOne', 12333);
 console.log(AVENGER);
+console.log('Metodod GET => ', AVENGER.powerMethod);
 
 const XMEN = new Xmen('XmenOne', 33333);
 console.log(XMEN);
 console.log(XMEN.getNameXmen());
+console.log('Metodod GET => ', XMEN.powerMethod);
+
+/* METODOS ESTATICOS 
+Son metodos que no necesitan un objeto
+para vivir en el tiempo, es decir,
+pueden ser llamados directamente con
+el nombre de la clase a la que pertenecen
+*/
+
+/* CLASES ABSTRACTAS
+No se pueden instanciar y sirven como molde para 
+todas las clases que hereden de ella, ademas
+todos los metodos definidos en una clase Abstracta 
+de ser implementados obligatoriamente en sus
+clases hijas
+ */
