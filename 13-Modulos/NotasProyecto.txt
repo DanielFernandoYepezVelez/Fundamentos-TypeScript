@@ -1,0 +1,3 @@
+EL PROYECTO DE MODULOS FUNCIONA =>
+pero no como el proyecto del instructor lo muestra, el unico cambio que se realizo,
+fue en el tsconfig, en el module, se paso de commonjs a system.
