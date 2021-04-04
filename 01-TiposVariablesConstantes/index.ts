@@ -81,6 +81,9 @@ console.log(`Array Tipo Numbers Two => ${numbersTwo}`);
 
 const strings: string[] = ['uno', 'dos', 'tres'];
 console.log(`Array Tipo String => ${strings}`);
+
+const stringsTwo: Array<string> = ['uno', 'dos', 'tres'];
+console.log(`Array Tipo String Two => ${stringsTwo}`);
 console.log('-------------------------------------------------------\n');
 
 /* ========= TIPOS DE DATOS TUPLAS ===============*/
