@@ -1,0 +1,3 @@
+CLASES =>
+Es El Molde O La Plantilla De Un Objeto.
+La Clase Contiene Atributos, Métodos De Dicho Objeto.
