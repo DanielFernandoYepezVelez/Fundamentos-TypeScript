@@ -34,3 +34,9 @@ let capitan = {
 };
 
 capitan.darOrden_Hulk();
+
+/* Por Otra Parte, En La Clases "THIS" Hace Referencia A Ella
+Misma, Pero Como Todavia No Se Ha Instanciado, No Podemos
+Poner El Nombre De Dicha Clase, Sino Que Se Hace Una Referencia
+Con La Palabra "THIS" Y Los Mismo Pasa Con La Palabra "SUPER",
+Pero Esto Se Evidencia Cuando Existe Herencia */
