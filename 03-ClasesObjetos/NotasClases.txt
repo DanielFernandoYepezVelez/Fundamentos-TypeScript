@@ -1,3 +1,16 @@
 CLASES =>
-Es El Molde O La Plantilla De Un Objeto.
+Es El Molde O Plantilla De Un Objeto.
 La Clase Contiene Atributos, Métodos De Dicho Objeto.
+
+Clase(Objeto) Coche =>
+
+Propiedades:
+color.
+marca.
+numeroPuertas.
+numeroRuedas.
+
+Métodos:
+Arrancar.
+Acelerar.
+Frenar.
